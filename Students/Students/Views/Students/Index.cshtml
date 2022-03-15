@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+
+@model List<Students.Models.Student>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Студенты</title>
+</head>
+<body>
+    <div>
+        <h3>Список студентов</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Номер
+                    </th>
+                    <th>
+                        ФИО студента
+                    </th>
+                    <th>
+                        Адрес почты
+                    </th>
+                </tr>
+            </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MailAdress)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id })  |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+        </table>
+    </div>
+</body>
+</html>
