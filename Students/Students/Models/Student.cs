@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Students.Models
 {
@@ -12,9 +7,11 @@ namespace Students.Models
         public int Id { get; set; }
 
         [Display(Name = "ФИО студента")]
+        [StringLength(60, MinimumLength = 3)]
         public string Name { get; set; }
 
-        [Display(Name = "АДрес студента")]
-        public string MailAdress { get; set; }
+        [Display(Name = "Адрес студента")]
+        [EmailAddress]
+        public string MailAddress { get; set; }
     }
 }
